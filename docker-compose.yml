@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  postgres_db:
+    image: postgres:15-alpine
+    container_name: my_postgres_lab
+    environment:
+      POSTGRES_USER: dmitry
+      POSTGRES_PASSWORD: password123
+      POSTGRES_DB: practice_database
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    restart: always
+
+volumes:
+  pg_data:
